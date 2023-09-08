@@ -83,7 +83,7 @@ class Part2Ques{
 
             for(int i=min;i<=max;i++){
                 System.out.print(map.get(i).data+" ");
-            }
+            } 
         }
     }
     public static void main(String args[]){
@@ -110,5 +110,7 @@ class Part2Ques{
 
         tree.topViewOfTree(rooot); 
         // 2  1  3  6
+        tree.bottomViewOfTree(rooot); //one line change in topview code
+        // 2  4  5  6   
     }
 }
