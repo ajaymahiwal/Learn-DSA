@@ -58,11 +58,21 @@ public class Implementation{
         q.add(20);
         q.add(7);
         q.add(15);
-        q.add(10);
-        while(!q.isEmpty()){
-            System.out.print(q.peek()+" ");
-            q.remove();
+        q.add(5);
+        // while(!q.isEmpty()){
+        //     System.out.print(q.peek()+" ");
+        //     q.remove();
+        // }
+        //5 20 7 15 5 
+
+
+        q.remove();
+        q.remove();
+        for(int i:q.arr){
+            System.out.println(i);
         }
-        //5 20 7 15 10 
+        // 7   15   5   5   5
+        // ⬆        ⬆
+        //Front   Rear
     }
 }

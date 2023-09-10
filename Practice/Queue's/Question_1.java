@@ -3,8 +3,8 @@
 //First Non-repeating letter in a stream of character
 
 import java.util.*;
-//TC => O(n)  SC=> O(n),for queue
 
+//TC => O(n)  SC=> O(n),for queue
 public class Question_1{
     public static void firstNonRLetterInStream(String str){
         Queue<Character> q = new LinkedList<>();

@@ -1,5 +1,5 @@
 
-//LL Using Queue = removeFirst()  +  addFirst()
+//LL Using Queue = removeFirst()  +  addLast()
 public class QueueUsingLL{
     static class Node{
         int data;

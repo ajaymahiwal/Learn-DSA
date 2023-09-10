@@ -1,7 +1,14 @@
 
 
 
-//Video 23.2 at 46:00 mintues
+//Video 23.2 at 46:00 mintues ⌚
+
+//Or Operator ko jab hum recusion mein ya khi bhi jha usse do conditions check kerni ho And pehli condition true ho gyi fir vo dusri condtion check kerne nhi jaye ge kyuki ak true too ho hi gyi fir next condition jaahe ab true ho ya false ab answer to true hi rhe ga
+
+// is program mein yhi check kiya hai mne ki kse or operator condtions mein kaam kerta hai
+// fir vhi chij binary tree k questions mein use ker li ki ager left side vo node mil gya hai to ab right ko call lagane ka kya fayda isliye hum direct conditions likh dete hai or operator k sath
+
+//ye asa tabhi kerta hai jab bhi pheli condition true ho jati hai
 import java.util.*;
 class OrOperator{
     static class Node{
