@@ -54,11 +54,14 @@ public class Delete{
              root.right=delete(root.right,IS.data); 
             //delete inorder successor from right subtree and updating right subtree
      */
-            //Method - 2
+    // ✅✅✅✅✅
+     // Inorder Suceesor ho ya Precedessor inke child kabhi bhi 1 se jyda nhi hoge
+     //Kyuki ager 2 hyue to vo kud hi Inorder sucessor ya precedessor nhi hoga
+            //Method - 2  Inorder precedessor
             Node IS=findInorderSuccesor1(root.left);
              root.data=IS.data; // replaced
              root.left=delete(root.left,IS.data); 
-             //delete inorder successor from left subtree and updating left subtree
+             //delete inorder precedessor from left subtree and updating left subtree
              
         }
         return root;
