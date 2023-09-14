@@ -54,7 +54,7 @@ class Part1Ques{
             int leftSubtreeH = height(root.left); 
             int rightSubtreeH = height(root.right);
 
-            int selfDia = leftSubtreeH + rightSubtreeH + 1;
+            int selfDia = leftSubtreeH + rightSubtreeH + 1; //for root
 
             return Math.max(selfDia,Math.max(leftDia,rightDia));
         }

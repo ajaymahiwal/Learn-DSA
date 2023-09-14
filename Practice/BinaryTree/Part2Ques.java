@@ -85,6 +85,74 @@ class Part2Ques{
                 System.out.print(map.get(i).data+" ");
             } 
         }
+
+        //Left View O(n) O(n)
+        public static void leftView(Node root){
+            Queue<Node> q = new LinkedList<>();
+            ArrayList<Node> list = new ArrayList<>();
+            q.add(root);
+            q.add(null);
+
+            list.add(root);
+            while(!q.isEmpty()){
+                Node curr = q.remove();
+                if(curr==null){
+                    if(q.isEmpty()){
+                        break;
+                    }else{
+                        list.add(q.peek());
+                        q.add(null);
+                    }
+                }else{
+                    if(curr.left!=null){
+                        q.add(curr.left);
+                    }
+                    if(curr.right!=null){
+                        q.add(curr.right);
+                    }
+                }
+            }
+
+            for(int k=0;k<list.size();k++){
+                System.out.print(list.get(k).data+" ");
+            }
+            System.out.println();
+        }
+
+        //Right View O(n) O(n)
+        public static void rightView(Node root){
+            Queue<Node> q = new LinkedList<>();
+            ArrayList<Node> list = new ArrayList<>();
+            q.add(root);
+            q.add(null);
+
+            list.add(root);
+            while(!q.isEmpty()){
+                Node curr = q.remove();
+                if(curr==null){
+                    if(q.isEmpty()){
+                        break;
+                    }else{
+                        list.add(q.peek());
+                        q.add(null);
+                    }
+                }else{
+                    //small change 
+        //ab left subtree nodes dalne se phle right nodes add krege
+                    if(curr.right!=null){
+                        q.add(curr.right);
+                    }
+                    if(curr.left!=null){
+                        q.add(curr.left);
+                    }
+                }
+            }
+
+            for(int k=0;k<list.size();k++){
+                System.out.print(list.get(k).data+" ");
+            }
+            System.out.println();
+        }
     }
     public static void main(String args[]){
         BinaryTree tree = new BinaryTree();
@@ -99,7 +167,7 @@ class Part2Ques{
         subroot.left = new Node(4);
         subroot.right = new Node(5);
 
-        System.out.println(tree.isSubtree(root,subroot)); //true
+        // System.out.println(tree.isSubtree(root,subroot)); //true
 
         Node rooot = new Node(1);
         rooot.left = new Node(2);
@@ -108,9 +176,11 @@ class Part2Ques{
         rooot.left.right.right = new Node(5);
         rooot.left.right.right.right = new Node(6);
 
-        tree.topViewOfTree(rooot); 
+        // tree.topViewOfTree(rooot); 
         // 2  1  3  6
-        tree.bottomViewOfTree(rooot); //one line change in topview code
+        // tree.bottomViewOfTree(rooot); //one line change in topview code
         // 2  4  5  6   
+        tree.leftView(rooot);  // 1 2 4 5 6 
+        tree.rightView(rooot); // 1 3 4 5 6 
     }
 }

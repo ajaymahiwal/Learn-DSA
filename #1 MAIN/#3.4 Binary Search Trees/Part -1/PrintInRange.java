@@ -39,7 +39,7 @@ public class PrintInRange{
         else if(root.data < k1){
             rangePrinter(root.right,k1,k2);
         }
-        else{
+        else{ // root.data > k2 Case
             rangePrinter(root.left,k1,k2);
         }
     }

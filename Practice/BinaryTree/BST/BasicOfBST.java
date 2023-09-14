@@ -10,17 +10,17 @@ class BasicOfBST{
             right=left=null;
         }
     }
-    static class BinaryTree{
-        public static Node buildBST(Node root,int data){
+    static class BinarySearchTree{
+        public static Node insert(Node root,int data){
             if(root==null){
                 root = new Node(data);
                 return root;
             }
             if(root.data > data){
-                root.left = buildBST(root.left,data);
+                root.left = insert(root.left,data);
             }
             else{ // root.data < data
-                root.right = buildBST(root.right,data);
+                root.right = insert(root.right,data);
             }
             return root;
         }
@@ -56,15 +56,25 @@ class BasicOfBST{
                     return root.right;
                 }
 
-                Node IS = findIS(root.right);
-                root.data = IS.data;
-                root.right = delete(root.right,IS.data);
+                // Node IS = findIS(root.right);  //Inorder success
+                // root.data = IS.data;
+                // root.right = delete(root.right,IS.data);
+
+                Node IP = findIP(root.left); //Inorder precedessor
+                root.data = IP.data;
+                root.left = delete(root.left,IP.data);
             }
             return root;
         }
         public static Node findIS(Node root){
                 while(root.left!=null){
                     root = root.left;
+                }
+                return root;
+        }
+        public static Node findIP(Node root){
+                while(root.right!=null){
+                    root = root.right;
                 }
                 return root;
         }
@@ -79,17 +89,17 @@ class BasicOfBST{
         }
     }
     public static void main(String args[]){
-        BinaryTree tree = new BinaryTree();
+        BinarySearchTree tree = new BinarySearchTree();
         int arr[]={4,5,6,2,3,1};
         Node root = null;
         for(int i=0;i<arr.length;i++){
-            root = tree.buildBST(root,arr[i]);
+            root = tree.insert(root,arr[i]);
         }
         tree.inorderSeq(root); // 1 2 3 4 5 6 
         System.out.println();
         System.out.println(tree.search(root,10));
         System.out.println(tree.delete(root,2));
-        tree.inorderSeq(root); 
+        tree.inorderSeq(root); // 1 3 4 5 6
 
     }
 }

@@ -31,7 +31,7 @@ class Part3Ques{
         }
         public static void kthLevelTree_2(Node root,int k){
             if(k==1){
-                System.out.println(1);
+                System.out.println(root.data);
                 return;
             }
 
