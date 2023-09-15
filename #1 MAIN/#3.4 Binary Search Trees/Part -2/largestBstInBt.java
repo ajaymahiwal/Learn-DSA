@@ -84,6 +84,6 @@ public class largestBstInBt{
         */
 
         largestBST(root);
-        System.out.println("Largest BST Size is: "+maxBST);
+        System.out.println("Largest BST Size is: "+maxBST);  // 5
     }
 }
