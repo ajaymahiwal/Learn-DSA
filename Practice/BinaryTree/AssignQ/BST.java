@@ -85,6 +85,55 @@ class BST{
             list.add(root.val);
             inorderUtil_1(root.right,list);
         }
+
+
+
+
+
+        static class Info{
+            boolean isBST;
+            int size;
+            int min;
+            int max;
+            int sum;
+            Info(boolean isBST,int size,int min,int max,int sum){
+                this.isBST = isBST;
+                this.size = size;
+                this.min = min;
+                this.max = max;
+                this.sum = sum;
+            }
+        }
+
+         static int maxBST=0;
+         static int maxBSTsum=0;
+        public static Info maxSumBSTinBT(Node root){
+            if(root == null){
+                return new Info(true,0,Integer.MAX_VALUE,Integer.MIN_VALUE,0);
+            }
+
+            Info leftSubTInfo = maxSumBSTinBT(root.left);
+            Info rightSubTInfo = maxSumBSTinBT(root.right);
+
+            int min = Math.min(root.val,Math.min(leftSubTInfo.min,rightSubTInfo.min));
+            int max = Math.max(root.val,Math.max(leftSubTInfo.max,rightSubTInfo.max));
+            int size = leftSubTInfo.size + rightSubTInfo.size + 1;
+            int sum = leftSubTInfo.sum + rightSubTInfo.sum + root.val;
+
+            if(root.val <= leftSubTInfo.max || root.val >= rightSubTInfo.min){
+                return new Info(false,size,min,max,sum);
+            }
+
+            if(leftSubTInfo.isBST && rightSubTInfo.isBST){
+                maxBST = Math.max(maxBST,size);
+                maxBSTsum = Math.max(maxBSTsum,sum);
+                return new Info(true,size,min,max,sum);
+            }
+           else{
+                return new Info(false,size,min,max,sum);
+           }
+
+        }
     }
     public static void main(String args[]){
         BinaryTree tree = new BinaryTree();
@@ -105,5 +154,16 @@ class BST{
 
         System.out.println(tree.kthSmallestEle(root,6)); // 20
         System.out.println(tree.kthSmallestEle_1(root,6)); // 20
+
+
+         root = new Node(5);
+        root.left = new Node(9);
+        root.right = new Node(2);
+        root.right.right = new Node(3);
+        root.left.left = new Node(6);
+        // root.left.left.left = new Node(8);
+        root.left.left.right = new Node(7);
+        tree.maxSumBSTinBT(root);
+        System.out.println(tree.maxBSTsum); // 22 ✅
     }
 }
