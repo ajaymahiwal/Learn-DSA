@@ -34,5 +34,8 @@ public class JobSeqP{
         for(int x=0;x<seq.size();x++){
             System.out.println("Job-"+seq.get(x));
         }
+        // Total Jobs Which a Person Can Do,To get Max Profit:2
+        // Job-2
+        // Job-0
     }
 }
