@@ -32,13 +32,13 @@ public class HeapSort{
         int n = arr.length;
   
         // Build max heap
-      for (int i = n / 2 - 1; i >= 0; i--) {
+      for (int i = n/2; i >= 0; i--) {
            heapify(arr, n, i);
         }
 
         //Step 2 - Push Largest at End
          // Heap sort
-      for (int i = n - 1; i >= 0; i--) {
+      for (int i = n - 1; i > 0; i--) {
         //Swap (Largest with last element)
           int temp = arr[0];
           arr[0] = arr[i];
@@ -62,6 +62,7 @@ public class HeapSort{
             // Heap Sort: (Ascending order)
             //  1 2 3 4 5 
 
-            //Decending order kerna hota to yaa to is print loop ko unlta chla do ya fir MaxHeap ki jaghe per MinHeap bnoo fir print kerva do O/P hogi => 5 4 3 2 1 
+            //Decending order kerna hota to yaa to is print loop ko unlta chla do 😂😂[Joke]
+            // ya fir MaxHeap ki jaghe per MinHeap bnoo fir print kerva do O/P hogi => 5 4 3 2 1 
     }
 }
