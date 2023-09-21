@@ -1,4 +1,7 @@
 
+
+// Time complexity : O(nlogn)
+// because for loop and inside that pq.add opertions which will take logn time.
 import java.util.*;
 public class NearbyCars{
     static class Point implements Comparable<Point>{

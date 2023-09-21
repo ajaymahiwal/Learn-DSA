@@ -34,8 +34,9 @@ public class SlidingWindow{
         res[0]=pq.peek().val;
 
         for(int i=k;i<arr.length;i++){
-            while(/*pq.size() > 0 &&*/ pq.peek().idx <= (i-k)){ //(i-k) is curr val idx of arr 
+            while(pq.size() > 0 && pq.peek().idx <= (i-k)){ //(i-k) is curr val idx of arr 
 //yani vo meri currwindow se phle aata hai,ab vali window m exist nhi kerta element isliye remove
+/*pq.size() > 0 is neccery for case where k=1 */
                 pq.remove();
             }
             
