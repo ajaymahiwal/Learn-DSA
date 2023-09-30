@@ -32,7 +32,7 @@ class PQ{
                  return -1; // this has higher CGPA, so return a negative value
             } else {
                  return 0;  // CGPA is equal
-            }
+            }r
         }
 
     }
