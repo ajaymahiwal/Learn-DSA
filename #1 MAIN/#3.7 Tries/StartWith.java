@@ -33,7 +33,7 @@ class StartWith{
         for(int i=0;i<s.length();i++){
             int idx = s.charAt(i) - 'a';
             if(curr.children[idx]==null){
-                return false;
+                return false;  
             }
             curr = curr.children[idx];
         }
