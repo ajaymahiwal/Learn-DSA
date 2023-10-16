@@ -85,8 +85,8 @@ class Base{
         ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
 
-        //Neibours of vertex 5
-        for(int i=0;i<graph[5].size();i++){
+        //Neighbours of vertex 5
+        for(int i=0;i<graph[5].size();i++){ 
             Edge e = graph[5].get(i);
 
             System.out.println(e.dest);

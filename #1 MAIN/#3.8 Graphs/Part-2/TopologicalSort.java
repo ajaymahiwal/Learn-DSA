@@ -41,7 +41,8 @@ public class TopologicalSort{
         }
     }
 
-public static void topoSortUtil(ArrayList<Edge> graph[],int curr,boolean visit[],Stack<Integer>s){
+public static void 
+topoSortUtil(ArrayList<Edge> graph[],int curr,boolean visit[],Stack<Integer>s){
         visit[curr]=true;
 
         for(int i=0;i<graph[curr].size();i++){

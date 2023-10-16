@@ -61,14 +61,23 @@ public class BellmanFord{
                     }
                 }
             }
+
+            
+            int node=0;
+            for(int x=0;x<dist.length;x++){
+                System.out.println("DISTANCE from Src to "+node+": "+dist[x]+" ");
+                node++;
+            }
+            System.out.println();
+            System.out.println();
         }
 
         //Print
-            int node=0;
-        for(int i=0;i<dist.length;i++){
-                System.out.println("DISTANCE from Src to "+node+": "+dist[i]+" ");
-                node++;
-        }
+        //     int node=0;
+        // for(int i=0;i<dist.length;i++){
+        //         System.out.println("DISTANCE from Src to "+node+": "+dist[i]+" ");
+        //         node++;
+        // }
     }
 
     //SECOND METHOD
@@ -113,6 +122,7 @@ public class BellmanFord{
                         dist[v]=dist[u]+wt;
                     }
                 }
+
         }
         //Print
             int node=0;
@@ -138,9 +148,9 @@ public class BellmanFord{
          */         
 
          int V = 5;
-        //  ArrayList<Edge> graph[]=new ArrayList[V];
-        //  createGraph(graph);
-        //  bellmanFord(graph,0);
+         ArrayList<Edge> graph[]=new ArrayList[V];
+         createGraph(graph);
+         bellmanFord(graph,2);
 
         // Here Src is 0
         //DISTANCE from Src to 0: 0 
@@ -149,9 +159,9 @@ public class BellmanFord{
         //DISTANCE from Src to 3: 0
         //DISTANCE from Src to 4: 4
 
-        ArrayList<Edge> graph=new ArrayList<>();
-        createGraph2(graph);
-        bellmanFord2(graph,0,V);
+        // ArrayList<Edge> graph=new ArrayList<>();
+        // createGraph2(graph);
+        // bellmanFord2(graph,0,V);
         //DISTANCE from Src to 0: 0 
         //DISTANCE from Src to 1: 2 
         //DISTANCE from Src to 2: -2
