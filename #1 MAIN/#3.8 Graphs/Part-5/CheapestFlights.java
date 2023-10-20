@@ -64,7 +64,8 @@ public class CheapestFlights{
                 int v=e.dest;
                 int wt=e.wt;
                 //relaxation steps
-               /* if(dist[u] != Integer.MAX_VALUE  && dist[u]+wt<dist[v] && curr.stops<=k){
+               /* if(dist[u] != Integer.MAX_VALUE  && ## dist[u] ## + wt < dist[v] 
+                && curr.stops<=k){
                     dist[v]=dist[u]+wt;
                     q.add(new Info(v,dist[v],curr.stops+1)); //src cost stops
                 }
@@ -85,9 +86,9 @@ public class CheapestFlights{
     }
     public static void main(String args[]){
         int n=4;
-        // int flights[][]={{0,1,100}, {1,2,200}, {2,0,100}, {1,3,600}, {2,3,200}};
-        int flights[][]={{0,1,1}, {1,2,1}, {0,2,5}, {2,3,1}};
-        int src=0,dst=3,k=1;  //K is Numbers of Stops
+        int flights[][]={{0,1,100}, {1,2,200}, {2,0,100}, {1,3,600}, {2,3,200}};
+        // int flights[][]={{0,1,1}, {1,2,1}, {0,2,5}, {2,3,1}};
+        int src=1,dst=3,k=1;  //K is Numbers of Stops
 
         System.out.println(CheapestFlights(n,flights,src,dst,k));
         //Using dist[u]+wt   Answer: 3 (stops > k,Not a Valid Answer)

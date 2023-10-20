@@ -1,14 +1,17 @@
 
-import java.util.*;
-class Base{
 
+
+// Date 19 October, 2023
+
+import java.util.*;
+class Practice{
     static class Edge{
         int src,dest,wt;
 
-        public Edge(int src,int dest,int wt){
-            this.src = src;
-            this.dest = dest;
-            this.wt = wt;
+        public Edge(int s, int d, int w){
+            this.src = s;
+            this.dest = d;
+            this.wt = w;
         }
     }
 
@@ -41,63 +44,66 @@ class Base{
         graph[6].add(new Edge(6,5,1));
     }
 
+    public static void dfs(ArrayList<Edge> graph[],boolean vis[],int curr){
+        System.out.print(curr+" ");
+        vis[curr] = true;
+
+        for(Edge e:graph[curr]){
+            int src = e.src;
+            int dest = e.dest;
+
+            if(!vis[dest]){
+                dfs(graph,vis,dest);
+            }
+        }
+    }
+
     public static void bfs(ArrayList<Edge> graph[]){
         Queue<Integer> q = new LinkedList<>();
-        boolean visit[] = new boolean[graph.length];
+        boolean vis[] = new boolean[graph.length];
 
-        // Starting vertex
         q.add(0);
 
         while(!q.isEmpty()){
             int curr = q.remove();
-            // if(!visit[curr]){
-                visit[curr] = true;
-                System.out.print(curr+" ");
-                
-                for(int i=0;i<graph[curr].size();i++){
-                    Edge e = graph[curr].get(i);
-                    // q.add(e.dest); //old approach
 
-                    //New code
-                    if(!visit[e.dest]){
-                        q.add(e.dest);
-                    }
+            if(!vis[curr]){
+                System.out.print(curr+" ");
+                vis[curr] = true;
+
+                for(Edge e:graph[curr]){
+                    q.add(e.dest);
                 }
-            // }
+            }
         }
     }
 
-    public static void dfs(ArrayList<Edge> graph[],boolean vis[],int curr){
-       
-       System.out.print(curr+" ");
-       vis[curr] = true;
+    public static boolean hasPath(ArrayList<Edge> graph[],int src,int dest,boolean vis[]){
+        if(src==dest){
+            return true;
+        }
+        vis[src] = true;
 
-       for(Edge e : graph[curr]){
-            if(!vis[e.dest]){
-                dfs(graph,vis,e.dest);
+        for(int i=0;i<graph[src].size();i++){
+            Edge e = graph[src].get(i);
+            if(!vis[e.dest] && hasPath(graph,e.dest,dest,vis)){
+                return true;
             }
-       }
+        }
+
+        return false;
     }
     public static void main(String args[]){
 
         int V = 7;
-        @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] graph = new ArrayList[V];
+        ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
 
-        //Neighbours of vertex 5
-        for(int i=0;i<graph[5].size();i++){ 
-            Edge e = graph[5].get(i);
-
-            System.out.println(e.dest);
-        }
-
+        dfs(graph,new boolean[V],0);
         System.out.println();
-
         bfs(graph);
         System.out.println();
-        System.out.println();
 
-        dfs(graph,new boolean[V],0);
+        System.out.println(hasPath(graph,0,5,new boolean[V]));
     }
 }
